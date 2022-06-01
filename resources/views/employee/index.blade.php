@@ -54,7 +54,7 @@
 											<td>{{ $employee->last_name }}</td>
 											<td>{{ $employee->phone }}</td>
 											<td>{{ $employee->email }}</td>
-											<td>{{ $employee->date_contract }}</td>
+											<td>{{ \Carbon\Carbon::parse($employee->date_contract)->format('m/d/Y') }}</td>
 
                                             <td>
                                                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
@@ -72,7 +72,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $employees->links() !!}
             </div>
         </div>
     </div>
